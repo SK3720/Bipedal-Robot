@@ -1,0 +1,185 @@
+<mujoco model="Full">
+  <default>
+    <default class="robot">
+      <default class="motor">
+        <joint damping="1"/>
+        <motor />
+      </default>
+      <default class="visual">
+        <geom material="visualgeom" contype="1" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom material="collision_material" condim="3" contype="0" conaffinity="1" priority="1" group="1" solref="0.005 1" solimp="0.99 0.999 1e-05" friction="1 0.01 0.01" />
+      </default>
+    </default>
+  </default>
+
+  <compiler angle="radian" />
+
+  <asset>
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <material name="collision_material" rgba="1.0 0.28 0.1 0.9" />
+    <mesh name="Chest-v7.stl" file="meshes/Chest-v7.stl" scale="0.001 0.001 0.001" />
+    <mesh name="Head-v6.stl" file="meshes/Head-v6.stl" scale="0.001 0.001 0.001" />
+    <mesh name="R_hip_roll.stl" file="meshes/R_hip_roll.stl" scale="0.001 0.001 0.001" />
+    <mesh name="R_hip_pitch.stl" file="meshes/R_hip_pitch.stl" scale="0.001 0.001 0.001" />
+    <mesh name="R_knee_U.stl" file="meshes/R_knee_U.stl" scale="0.001 0.001 0.001" />
+    <mesh name="R_ankle_pitch_U.stl" file="meshes/R_ankle_pitch_U.stl" scale="0.001 0.001 0.001" />
+    <mesh name="R_ankle_roll_U.stl" file="meshes/R_ankle_roll_U.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_hip_roll.stl" file="meshes/L_hip_roll.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_hip_pitch.stl" file="meshes/L_hip_pitch.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_knee_U.stl" file="meshes/L_knee_U.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_ankle_pitch_U.stl" file="meshes/L_ankle_pitch_U.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_ankle_roll_U.stl" file="meshes/L_ankle_roll_U.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_shoulder.stl" file="meshes/L_shoulder.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_elbow.stl" file="meshes/L_elbow.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_shoulder-v1.stl" file="meshes/R_shoulder-v1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_elbow-v1.stl" file="meshes/R_elbow-v1.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <geom name="ground" type="plane" size="5 5 0.1" pos="0 0 0" rgba="0.8 0.8 0.8 1"/>
+    <body name="Chest-v7" pos="0.00000000 0.00000000 0.33640064" quat="1 0 0 0" childclass="robot">
+      <freejoint name="floating_base"/>
+      <geom name="Chest-v7_collision" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="Chest-v7.stl" class="collision" />
+      <geom name="Chest-v7_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="Chest-v7.stl" class="visual" />
+      <body name="Head-v6" pos="0.0335699999999998 -0.013930002815394325 0.038570000000000125" quat="0.5000000000000026 0.4999999999999976 0.5000000000000026 0.4999999999999976">
+        <joint name="Chest-v7_Neck" type="hinge" ref="0.0" class="motor" axis="0.0 1.0 -6.101184841283677e-46" />
+        <inertial pos="1.4022457017759393e-09 0.025843081525727174 -0.0017936194308772668" quat="1.0 0.0 0.0 0.0" mass="0.01954075874925041" diaginertia="6.565043449302847e-06 4.74031172981057e-06 7.1707415376952625e-06" />
+        <geom name="Head-v6_collision" pos="-0.017999997184605595 0.004000000000000022 -0.015000000000000081" quat="1.0 1.7236212457305479e-15 1.623119831091104e-29 1.942890293093997e-16" type="mesh" mesh="Head-v6.stl" class="collision" />
+        <geom name="Head-v6_visual" pos="-0.017999997184605595 0.004000000000000022 -0.015000000000000081" quat="1.0 1.7236212457305479e-15 1.623119831091104e-29 1.942890293093997e-16" material="default_material" type="mesh" mesh="Head-v6.stl" class="visual" />
+      </body>
+      <body name="R_hip_roll" pos="0.0565833999999998 -0.0336580928153957 -0.09917999999999967" quat="0.7071067811865436 -0.7071067811865515 2.1648901405883416e-17 -2.164890140589022e-17">
+        <joint name="Chest-v7_R_Hip_Roll" type="hinge" ref="0.0" class="motor" axis="1.0 6.101184841283677e-46 9.96399099810936e-30" />
+        <inertial pos="-0.022958010052910153 0.005122904158310928 -0.010467170530186164" quat="1.0 -1.896213251662125e-106 -0.0 0.0" mass="0.04715115720927032" diaginertia="1.4935923907520732e-05 1.5452415232413348e-05 1.3691282624387192e-05" />
+        <geom name="R_hip_roll_collision" pos="-0.002999996398133691 -0.01024999999999965 0.009999997828133789" quat="6.828522122748187e-15 6.123233995733086e-17 1.0 5.390302858158118e-15" type="mesh" mesh="R_hip_roll.stl" class="collision" />
+        <geom name="R_hip_roll_visual" pos="-0.002999996398133691 -0.01024999999999965 0.009999997828133789" quat="6.828522122748187e-15 6.123233995733086e-17 1.0 5.390302858158118e-15" material="default_material" type="mesh" mesh="R_hip_roll.stl" class="visual" />
+        <body name="R_hip_pitch" pos="-0.023000000000000003 0.04107724000000003 -0.03325000999999996" quat="1.9274087532323052e-15 -0.7071067811865478 -1.927408753232304e-15 -0.7071067811865472">
+          <joint name="R_hip_roll_R_Hip_Pitch" type="hinge" ref="0.0" class="motor" axis="-1.0 0.0 -2.79515653809687e-15" />
+          <inertial pos="0.02300250400614767 -0.03344558639486484 0.0024328057064653577" quat="1.0 0.0 0.0 0.0" mass="0.07538688193070844" diaginertia="5.1187394452053767e-05 1.7338823182786458e-05 6.0378029822391745e-05" />
+          <geom name="R_hip_pitch_collision" pos="0.04299999826712383 0.009999995361905914 0.010250003601865667" quat="6.865810725455393e-15 8.128637768335365e-16 -0.707106781186544 0.707106781186551" type="mesh" mesh="R_hip_pitch.stl" class="collision" />
+          <geom name="R_hip_pitch_visual" pos="0.04299999826712383 0.009999995361905914 0.010250003601865667" quat="6.865810725455393e-15 8.128637768335365e-16 -0.707106781186544 0.707106781186551" material="default_material" type="mesh" mesh="R_hip_pitch.stl" class="visual" />
+          <body name="R_knee_U" pos="0.0030000000000000005 -0.06502805 1.0110000000356223e-05" quat="0.7071067811865497 5.951859046396411e-29 -0.7071067811865454 5.951859046396374e-29">
+            <joint name="R_hip_pitch_R_Knee" type="hinge" ref="0.0" class="motor" axis="2.397181806545297e-31 -8.99301431951953e-29 -1.0" />
+            <inertial pos="0.0051624158157220195 -0.046045081703790326 -0.019955472595518636" quat="1.0 7.1673460676881e-90 0.0 0.0" mass="0.04624752248218769" diaginertia="2.684531968752727e-05 1.2576824612737071e-05 1.96221089912409e-05" />
+            <geom name="R_knee_U_collision" pos="0.022480230467087955 -0.016210009352445917 0.007000001732875916" quat="4.910911215701932e-15 0.27982901403099203 -0.9600498543859287 -2.564215982068868e-15" type="mesh" mesh="R_knee_U.stl" class="collision" />
+            <geom name="R_knee_U_visual" pos="0.022480230467087955 -0.016210009352445917 0.007000001732875916" quat="4.910911215701932e-15 0.27982901403099203 -0.9600498543859287 -2.564215982068868e-15" material="default_material" type="mesh" mesh="R_knee_U.stl" class="visual" />
+            <body name="R_ankle_pitch_U" pos="4.2100000000000474e-05 -0.06428810999999998 0.0" quat="0.7071067811865526 1.7433565307167165e-16 0.7071067811865425 -1.7433565307166916e-16">
+              <joint name="R_knee_U_R_Ankle_Pitch" type="hinge" ref="0.0" class="motor" axis="1.0 7.779678246820953e-46 -6.010169451836604e-16" />
+              <inertial pos="0.01978283949481189 -0.03595433992169927 -4.198463926766483e-05" quat="1.0 0.0 0.0 3.8898391234104765e-46" mass="0.0471511572092751" diaginertia="1.3691282634659303e-05 1.5452415232379344e-05 1.4935923903172492e-05" />
+              <geom name="R_ankle_pitch_U_collision" pos="-0.007000001732875627 -0.025749999428376462 0.010250001722007575" quat="0.7071067811865513 -9.998185367082542e-16 0.7071067811865437 9.998185367082436e-16" type="mesh" mesh="R_ankle_pitch_U.stl" class="collision" />
+              <geom name="R_ankle_pitch_U_visual" pos="-0.007000001732875627 -0.025749999428376462 0.010250001722007575" quat="0.7071067811865513 -9.998185367082542e-16 0.7071067811865437 9.998185367082436e-16" material="default_material" type="mesh" mesh="R_ankle_pitch_U.stl" class="visual" />
+              <body name="R_ankle_roll_U" pos="0.030250010000000015 -0.04107723999999997 0.020000000000000018" quat="3.811519703652836e-15 -0.7071067811865478 -3.811519703652833e-15 -0.7071067811865472">
+                <joint name="R_ankle_pitch_U_R_Ankle_Roll" type="hinge" ref="0.0" class="motor" axis="-1.0 -1.5524572102319767e-31 5.40948838795015e-15" />
+                <inertial pos="-0.01975553298876268 0.026557989291173846 -0.012812449879794654" quat="1.0 -3.5810270939808067e-76 -0.0 0.0" mass="0.028531188445139553" diaginertia="1.1065604697926487e-05 2.3888398154320947e-05 1.7526568054559e-05" />
+                <geom name="R_ankle_roll_U_collision" pos="-0.04699999827799345 0.025750004066468685 -0.01025000217186762" quat="3.811519703652856e-15 -0.7071067811865515 -3.811519703652814e-15 -0.7071067811865437" type="mesh" mesh="R_ankle_roll_U.stl" class="collision" />
+                <geom name="R_ankle_roll_U_visual" pos="-0.04699999827799345 0.025750004066468685 -0.01025000217186762" quat="3.811519703652856e-15 -0.7071067811865515 -3.811519703652814e-15 -0.7071067811865437" material="default_material" type="mesh" mesh="R_ankle_roll_U.stl" class="visual" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="L_hip_roll" pos="0.056531729999999794 0.006429267184604308 -0.09918000000000009" quat="0.7071067811865436 -0.7071067811865515 2.1648901405883416e-17 -2.164890140589022e-17">
+        <joint name="Chest-v7_L_Hip_roll" type="hinge" ref="0.0" class="motor" axis="1.0 6.101184841283677e-46 9.96399099810936e-30" />
+        <inertial pos="-0.02296269805395209 0.005122904147467469 0.010467171398592141" quat="1.0 -1.896213251662125e-106 -0.0 0.0" mass="0.04715115720946758" diaginertia="1.4935923912787685e-05 1.54524327499922e-05 1.3691300147201596e-05" />
+        <geom name="L_hip_roll_collision" pos="-0.0029999986535321987 0.010250000000000559 -0.00999999695973516" quat="6.123233995733003e-17 -6.8151576081852126e-15 5.522141842332388e-15 -1.0" type="mesh" mesh="L_hip_roll.stl" class="collision" />
+        <geom name="L_hip_roll_visual" pos="-0.0029999986535321987 0.010250000000000559 -0.00999999695973516" quat="6.123233995733003e-17 -6.8151576081852126e-15 5.522141842332388e-15 -1.0" material="default_material" type="mesh" mesh="L_hip_roll.stl" class="visual" />
+        <body name="L_hip_pitch" pos="-0.023000000000000003 0.04107724000000001 -0.012749989999999958" quat="0.7071067811865478 1.928269800820985e-15 -0.7071067811865472 1.9282698008209834e-15">
+          <joint name="L_hip_roll_L_Hip_Pitch" type="hinge" ref="0.0" class="motor" axis="-1.0 0.0 2.4516329867682e-14" />
+          <inertial pos="0.02300250834029801 0.03344558639486477 -0.0024328034510654995" quat="1.0 0.0 0.0 0.0" mass="0.07538688193070846" diaginertia="5.11873944520529e-05 1.733882318278622e-05 6.037802982239131e-05" />
+          <geom name="L_hip_pitch_collision" pos="0.04300000260127433 -0.009999995361905932 -0.01025000134646615" quat="-9.694130346769425e-16 6.708341491562061e-15 -0.7071067811865495 -0.7071067811865456" type="mesh" mesh="L_hip_pitch.stl" class="collision" />
+          <geom name="L_hip_pitch_visual" pos="0.04300000260127433 -0.009999995361905932 -0.01025000134646615" quat="-9.694130346769425e-16 6.708341491562061e-15 -0.7071067811865495 -0.7071067811865456" material="default_material" type="mesh" mesh="L_hip_pitch.stl" class="visual" />
+          <body name="L_knee_U" pos="0.0029999999999999983 0.06502805 -1.0110000000356223e-05" quat="4.329780281177521e-17 0.7071067811865565 4.329780281177412e-17 -0.7071067811865387">
+            <joint name="L_hip_pitch_L_Knee" type="hinge" ref="0.0" class="motor" axis="-4.07477776492973e-31 -1.87263558411133e-30 -1.0" />
+            <inertial pos="0.00516240110134404 -0.04604507836928134 -0.019955475430689765" quat="1.0 -2.5366309101097567e-91 -0.0 0.0" mass="0.04624752577096377" diaginertia="2.6845322760013328e-05 1.2576824212492455e-05 1.9622108221100222e-05" />
+            <geom name="L_knee_U_collision" pos="0.022480228211687606 -0.016210009352445452 0.00699999739872593" quat="5.409333227382821e-15 0.27982901403099203 -0.9600498543859287 -7.999480465681516e-16" type="mesh" mesh="L_knee_U.stl" class="collision" />
+            <geom name="L_knee_U_visual" pos="0.022480228211687606 -0.016210009352445452 0.00699999739872593" quat="5.409333227382821e-15 0.27982901403099203 -0.9600498543859287 -7.999480465681516e-16" material="default_material" type="mesh" mesh="L_knee_U.stl" class="visual" />
+            <body name="L_ankle_pitch_U" pos="4.2100000000013797e-05 -0.06428810999999998 -0.04" quat="2.7124549825741928e-15 -0.7071067811865477 2.712454982574192e-15 0.7071067811865475">
+              <joint name="L_knee_U_L_Ankle_Pitch" type="hinge" ref="0.0" class="motor" axis="-1.0 -1.1769853536595709e-44 -1.6606773599962e-14" />
+              <inertial pos="-0.019782838597845267 0.03595433992168687 -4.198581698747983e-05" quat="1.0 0.0 0.0 0.0" mass="0.04715115720927039" diaginertia="1.3691282635019258e-05 1.545241523172097e-05 1.4935923902789985e-05" />
+              <geom name="L_ankle_pitch_U_collision" pos="-0.04699999739872441 0.025749999428376497 -0.010249999466605205" quat="3.4975012119160997e-15 0.7071067811865516 -3.49750121191606e-15 0.7071067811865435" type="mesh" mesh="L_ankle_pitch_U.stl" class="collision" />
+              <geom name="L_ankle_pitch_U_visual" pos="-0.04699999739872441 0.025749999428376497 -0.010249999466605205" quat="3.4975012119160997e-15 0.7071067811865516 -3.49750121191606e-15 0.7071067811865435" material="default_material" type="mesh" mesh="L_ankle_pitch_U.stl" class="visual" />
+              <body name="L_ankle_roll_U" pos="-0.030250009999999668 0.04107723999999987 -0.020000000000000306" quat="0.707106781186554 3.905604990975909e-15 0.7071067811865411 -3.905604990975838e-15">
+                <joint name="L_ankle_pitch_U_L_Ankle_Roll" type="hinge" ref="0.0" class="motor" axis="-1.0 -7.041270975276136e-31 5.2869787854863185e-15" />
+                <inertial pos="-0.020244465822623778 0.026557989291173846 0.012812450748187354" quat="1.0 -7.88860905221012e-31 2.4892061111444567e-60 1.963637386119091e-90" mass="0.02853118844513517" diaginertia="1.106560469792215e-05 2.3888398154312687e-05 1.7526568054556892e-05" />
+                <geom name="L_ankle_roll_U_collision" pos="0.006999999466604967 0.0257500040664695 0.010250003040265644" quat="3.811519703652857e-15 0.7071067811865517 3.811519703652813e-15 -0.7071067811865434" type="mesh" mesh="L_ankle_roll_U.stl" class="collision" />
+                <geom name="L_ankle_roll_U_visual" pos="0.006999999466604967 0.0257500040664695 0.010250003040265644" quat="3.811519703652857e-15 0.7071067811865517 3.811519703652813e-15 -0.7071067811865434" material="default_material" type="mesh" mesh="L_ankle_roll_U.stl" class="visual" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="L_shoulder" pos="0.05331999999999981 0.07506999718460548 0.019069869999999253" quat="0.7071067811865511 0.707106781186544 -2.1648901405890232e-17 -2.1648901405883406e-17">
+        <joint name="Chest-v7_L_Shoulder" type="hinge" ref="0.0" class="motor" axis="-1.0 6.101184841283677e-46 4.05112599383967e-15" />
+        <inertial pos="-0.020000000000054287 -0.025749999606455687 -2.8153923992135788e-09" quat="1.0 5.138860724430975e-121 0.0 0.0" mass="0.011528347508425305" diaginertia="6.841297160784177e-06 6.2306233711458805e-06 6.841297158673473e-06" />
+        <geom name="L_shoulder_collision" pos="-0.04699999999999993 -0.02574999960645604 0.010249997184606077" quat="0.7071067811865512 -1.432289330842566e-15 0.7071067811865438 1.432289330842551e-15" type="mesh" mesh="L_shoulder.stl" class="collision" />
+        <geom name="L_shoulder_visual" pos="-0.04699999999999993 -0.02574999960645604 0.010249997184606077" quat="0.7071067811865512 -1.432289330842566e-15 0.7071067811865438 1.432289330842551e-15" material="default_material" type="mesh" mesh="L_shoulder.stl" class="visual" />
+        <body name="L_elbow" pos="-0.020000000000000098 -0.05150000000000001 -0.023000000000000007" quat="1.3934999695075554e-15 1.0 3.944304526105062e-31 5.4963882368559056e-46">
+          <joint name="L_shoulder_L_Elbow" type="hinge" ref="0.0" class="motor" axis="0.0 -2.8877207027329555e-15 1.0" />
+          <inertial pos="-1.225686219186173e-15 0.02991784473699572 -0.02297349786147816" quat="1.0 8.985165025651547e-76 0.0 0.0" mass="0.055039517566054866" diaginertia="6.107490663590398e-05 1.2148923834114805e-05 5.273875201779971e-05" />
+          <geom name="L_elbow_collision" pos="-0.01025000000000007 -0.010000000393544334 -0.04299999718460578" quat="0.49999999999999983 -0.500000000000002 -0.4999999999999981 -0.5000000000000002" type="mesh" mesh="L_elbow.stl" class="collision" />
+          <geom name="L_elbow_visual" pos="-0.01025000000000007 -0.010000000393544334 -0.04299999718460578" quat="0.49999999999999983 -0.500000000000002 -0.4999999999999981 -0.5000000000000002" material="default_material" type="mesh" mesh="L_elbow.stl" class="visual" />
+        </body>
+      </body>
+      <body name="R_shoulder-v1" pos="0.0533199999999998 -0.10293000281539452 0.01906987000000103" quat="0.7071067811865511 0.707106781186544 -2.1648901405890232e-17 -2.1648901405883406e-17">
+        <joint name="Chest-v7_R_Shoulder" type="hinge" ref="0.0" class="motor" axis="-1.0 6.101184841283677e-46 -4.33174997344156e-15" />
+        <inertial pos="-0.02000000000005443 -0.025749999606457602 -2.81539326962843e-09" quat="1.0 -1.8353074015824922e-121 -0.0 0.0" mass="0.011528347508425305" diaginertia="6.8412971607841635e-06 6.23062337114586e-06 6.841297158673486e-06" />
+        <geom name="R_shoulder-v1_collision" pos="-0.04700000000000014 -0.025749999606457727 0.010249997184605215" quat="0.7071067811865515 1.5315048903125994e-15 0.7071067811865437 -1.5315048903125826e-15" type="mesh" mesh="R_shoulder-v1.stl" class="collision" />
+        <geom name="R_shoulder-v1_visual" pos="-0.04700000000000014 -0.025749999606457727 0.010249997184605215" quat="0.7071067811865515 1.5315048903125994e-15 0.7071067811865437 -1.5315048903125826e-15" material="default_material" type="mesh" mesh="R_shoulder-v1.stl" class="visual" />
+        <body name="R_elbow-v1" pos="-0.020000000000000094 -0.05150000000000001 0.023" quat="1.0 -1.443860351366477e-15 -4.4046294443438396e-61 3.0505924206418385e-46">
+          <joint name="R_shoulder-v1_R_Elbow" type="hinge" ref="0.0" class="motor" axis="-0.0 -2.887720702732955e-15 1.0" />
+          <inertial pos="-1.865174681370263e-15 -0.02991784473699789 -0.023026502138522576" quat="1.0 0.0 0.0 0.0" mass="0.055039517566054866" diaginertia="6.107490663590548e-05 1.2148923834114588e-05 5.2738752017800586e-05" />
+          <geom name="R_elbow-v1_collision" pos="-0.010250000000000408 0.010000000393542213 -0.003000002815394911" quat="0.4999999999999996 0.5000000000000018 0.4999999999999983 -0.5000000000000004" type="mesh" mesh="R_elbow-v1.stl" class="collision" />
+          <geom name="R_elbow-v1_visual" pos="-0.010250000000000408 0.010000000393542213 -0.003000002815394911" quat="0.4999999999999996 0.5000000000000018 0.4999999999999983 -0.5000000000000004" material="default_material" type="mesh" mesh="R_elbow-v1.stl"  class="visual" />
+        </body>
+      </body>
+      <site name="Chest-v7_site" pos="0 0 0" quat="1 0 0 0" />
+      <camera name="front_camera" mode="track" fovy="90.0" quat="4.329780281177467e-17 4.329780281177467e-17 0.7071067811865476 0.7071067811865476" pos="0.0 2.0 0.5" />
+      <camera name="side_camera" mode="track" fovy="90.0" quat="-0.5 -0.5 0.5000000000000001 0.5000000000000001" pos="-2.0 0.0 0.5" />
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="Chest-v7_Neck_ctrl" joint="Chest-v7_Neck" class="motor" />
+    <motor name="Chest-v7_R_Hip_Roll_ctrl" joint="Chest-v7_R_Hip_Roll" class="motor" />
+    <motor name="R_hip_roll_R_Hip_Pitch_ctrl" joint="R_hip_roll_R_Hip_Pitch" class="motor" />
+    <motor name="R_hip_pitch_R_Knee_ctrl" joint="R_hip_pitch_R_Knee" class="motor" />
+    <motor name="R_knee_U_R_Ankle_Pitch_ctrl" joint="R_knee_U_R_Ankle_Pitch" class="motor" />
+    <motor name="R_ankle_pitch_U_R_Ankle_Roll_ctrl" joint="R_ankle_pitch_U_R_Ankle_Roll" class="motor" />
+    <motor name="Chest-v7_L_Hip_roll_ctrl" joint="Chest-v7_L_Hip_roll" class="motor" />
+    <motor name="L_hip_roll_L_Hip_Pitch_ctrl" joint="L_hip_roll_L_Hip_Pitch" class="motor" />
+    <motor name="L_hip_pitch_L_Knee_ctrl" joint="L_hip_pitch_L_Knee" class="motor" />
+    <motor name="L_knee_U_L_Ankle_Pitch_ctrl" joint="L_knee_U_L_Ankle_Pitch" class="motor" />
+    <motor name="L_ankle_pitch_U_L_Ankle_Roll_ctrl" joint="L_ankle_pitch_U_L_Ankle_Roll" class="motor" />
+    <motor name="Chest-v7_L_Shoulder_ctrl" joint="Chest-v7_L_Shoulder" class="motor" />
+    <motor name="L_shoulder_L_Elbow_ctrl" joint="L_shoulder_L_Elbow" class="motor" />
+    <motor name="Chest-v7_R_Shoulder_ctrl" joint="Chest-v7_R_Shoulder" class="motor" />
+    <motor name="R_shoulder-v1_R_Elbow_ctrl" joint="R_shoulder-v1_R_Elbow" class="motor" />
+  </actuator>
+
+  <contact>
+    <exclude body1="Chest-v7" body2="Head-v6" />
+    <exclude body1="Chest-v7" body2="R_hip_roll" />
+    <exclude body1="R_hip_roll" body2="R_hip_pitch" />
+    <exclude body1="R_hip_pitch" body2="R_knee_U" />
+    <exclude body1="R_knee_U" body2="R_ankle_pitch_U" />
+    <exclude body1="R_ankle_pitch_U" body2="R_ankle_roll_U" />
+    <exclude body1="Chest-v7" body2="L_hip_roll" />
+    <exclude body1="L_hip_roll" body2="L_hip_pitch" />
+    <exclude body1="L_hip_pitch" body2="L_knee_U" />
+    <exclude body1="L_knee_U" body2="L_ankle_pitch_U" />
+    <exclude body1="L_ankle_pitch_U" body2="L_ankle_roll_U" />
+    <exclude body1="Chest-v7" body2="L_shoulder" />
+    <exclude body1="L_shoulder" body2="L_elbow" />
+    <exclude body1="Chest-v7" body2="R_shoulder-v1" />
+    <exclude body1="R_shoulder-v1" body2="R_elbow-v1" />
+  </contact>
+
+  <sensor>
+    <framepos name="Chest-v7_site_pos" objtype="site" objname="Chest-v7_site" />
+    <framequat name="Chest-v7_site_quat" objtype="site" objname="Chest-v7_site" />
+    <framelinvel name="Chest-v7_site_linvel" objtype="site" objname="Chest-v7_site" />
+    <frameangvel name="Chest-v7_site_angvel" objtype="site" objname="Chest-v7_site" />
+    <velocimeter name="Chest-v7_site_vel" site="Chest-v7_site" />
+  </sensor>
+</mujoco>

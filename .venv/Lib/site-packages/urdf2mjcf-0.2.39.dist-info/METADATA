@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: urdf2mjcf
+Version: 0.2.39
+Summary: The urdf2mjcf project
+Home-page: https://github.com/kscalelabs/urdf2mjcf
+Author: Benjamin Bolte
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colorlogging
+Requires-Dist: mujoco
+Requires-Dist: numpy
+Requires-Dist: pydantic
+Requires-Dist: scipy
+Requires-Dist: trimesh
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: darglint; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+<div align="center">
+
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kscalelabs/urdf2mjcf/blob/main/LICENSE)
+[![Version](https://img.shields.io/pypi/v/urdf2mjcf)](https://pypi.org/project/urdf2mjcf/)
+[![Discord](https://img.shields.io/discord/1224056091017478166)](https://discord.gg/kscale)
+[![Wiki](https://img.shields.io/badge/wiki-humanoids-black)](https://humanoids.wiki)
+<br />
+[![python](https://img.shields.io/badge/-Python_3.11-blue?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/)
+[![ruff](https://img.shields.io/badge/Linter-Ruff-red.svg?labelColor=gray)](https://github.com/charliermarsh/ruff)
+<br />
+[![Python Checks](https://github.com/kscalelabs/urdf2mjcf/actions/workflows/test.yml/badge.svg)](https://github.com/kscalelabs/urdf2mjcf/actions/workflows/test.yml)
+[![Publish Python Package](https://github.com/kscalelabs/urdf2mjcf/actions/workflows/publish.yml/badge.svg)](https://github.com/kscalelabs/urdf2mjcf/actions/workflows/publish.yml)
+
+</div>
+
+# urdf2mjcf
+
+Convert URDF to MJCF XML.
+
+See the documentation for this project [here](https://docs.kscale.dev/docs/urdf2mjcf).

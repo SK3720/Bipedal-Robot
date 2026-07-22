@@ -1,0 +1,2 @@
+[console_scripts]
+urdf2mjcf = urdf2mjcf.convert:main
