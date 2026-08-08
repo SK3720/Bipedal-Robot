@@ -8,7 +8,12 @@ class BipedalWalkEnv(gym.Env):
         super().__init__()
         
         self.num_actions = 15  # total number of servos
-        action_space = spaces.Box(low=-1.0, high=1.0, shape=(15,), dtype=np.float32)
+        self.action_space = spaces.Box(
+            low=-1.0, 
+            high=1.0, 
+            shape=(self.num_actions,), 
+            dtype=np.float32
+        )
 
         # Observation Space (34 sensor values)
         self.obs_dim = 34
@@ -19,7 +24,7 @@ class BipedalWalkEnv(gym.Env):
             dtype=np.float32
         )
 
-        self.model = mujoco.MjModel.from_xml_path("robot/Full.urdf")
+        self.model = mujoco.MjModel.from_xml_path("robot/robot.xml")
         self.data = mujoco.MjData(self.model)
 
     def step(self, action):
@@ -70,6 +75,25 @@ class BipedalWalkEnv(gym.Env):
         }
         
         return observation, reward, terminated, truncated, info
+
+
+    def reset(self, seed=None, options=None):
+        super().reset(seed=seed)
+        
+        # Reset the physics simulation to its initial default state
+        mujoco.mj_resetData(self.model, self.data)
+        
+        # Drop the robot from a safe starting height (e.g., 0.5 meters)
+        self.data.qpos[0:3] = [0, 0, 0.5]
+        self.data.qpos[3:7] = [1, 0, 0, 0] # Upright quaternion
+        
+        # Calculate the starting physics state
+        mujoco.mj_forward(self.model, self.data)
+        
+        observation = self._get_obs()
+        info = {}
+        
+        return observation, info
 
 
     def _get_obs(self):
