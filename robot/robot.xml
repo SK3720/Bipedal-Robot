@@ -1,0 +1,146 @@
+<mujoco model="Full">
+  <compiler angle="radian"/>
+  <option timestep="0.001"/> <!-- Slows down the physics math -->
+
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+  </default>
+
+  <asset>
+    <mesh name="Chest" content_type="model/stl" file="meshes/Chest.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="Head-v6" content_type="model/stl" file="meshes/Head-v6.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_hip" content_type="model/stl" file="meshes/L_hip.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_leg" content_type="model/stl" file="meshes/L_leg.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_shin" content_type="model/stl" file="meshes/L_shin.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_ankle" content_type="model/stl" file="meshes/L_ankle.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_foot" content_type="model/stl" file="meshes/L_foot.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_hip" content_type="model/stl" file="meshes/R_hip.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_leg" content_type="model/stl" file="meshes/R_leg.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_shin" content_type="model/stl" file="meshes/R_shin.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_ankle" content_type="model/stl" file="meshes/R_ankle.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_foot" content_type="model/stl" file="meshes/R_foot.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_arm" content_type="model/stl" file="meshes/L_arm.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="L_hand" content_type="model/stl" file="meshes/L_hand.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_arm" content_type="model/stl" file="meshes/R_arm.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="R_hand" content_type="model/stl" file="meshes/R_hand.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <body name="Chest" pos="0 0 2.0">
+      <freejoint name="root"/>
+      <geom name="Chest_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Chest"/>
+      <geom name="Chest_collision" type="mesh" mesh="Chest"/>
+    <body name="Head-v6" pos="0.0353838 0.112 0.02225" quat="0 -1 0 0">
+      <inertial pos="-4.22854e-09 -0.0258431 0.00179362" quat="0.525652 0.472959 -0.472959 0.525652" mass="0.025" diaginertia="7.19827e-06 6.56504e-06 4.71278e-06"/>
+      <joint name="Chest_neck" pos="0 0 0" axis="0 -1 0" range="-3.14159 3.14159" actuatorfrcrange="-1000000 1000000"/>
+      <geom name="Head-v6_visual" pos="-0.018 -0.004 0.015" quat="0 1 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="Head-v6"/>
+      <geom name="Head-v6_collision" pos="-0.018 -0.004 0.015" quat="0 1 0 0" type="mesh" mesh="Head-v6"/>
+    </body>
+    <body name="L_arm" pos="0.123591 0.0924999 0.042" quat="0.707107 0.707107 0 0">
+      <inertial pos="0.000202286 -0.02 0.0460471" quat="0.707099 0.00337052 0.00337052 0.707099" mass="0.082" diaginertia="2.0447e-05 1.86449e-05 1.01815e-05"/>
+      <joint name="Chest_L_shoulder" pos="0 0 0" axis="0 -1 0" range="-3.57793 0.174533" actuatorfrcrange="-1000000 1000000"/>
+      <geom name="L_arm_visual" pos="-0.01025 -0.047 0.02575" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_arm"/>
+      <geom name="L_arm_collision" pos="-0.01025 -0.047 0.02575" quat="0.707107 -0.707107 0 0" type="mesh" mesh="L_arm"/>
+      <body name="L_hand" pos="-0.01975 -0.02 0.06325" quat="0.707107 0 0.707107 0">
+        <inertial pos="-0.0460523 -1.32562e-06 0.0200105" quat="0.499622 0.500339 0.50038 0.499659" mass="0.0.027" diaginertia="2.89446e-05 1.92232e-05 1.16792e-05"/>
+        <joint name="L_arm_L_elbow" pos="0 0 0" axis="0 0 1" range="-2.26893 2.26893" actuatorfrcrange="-1000000 1000000"/>
+        <geom name="L_hand_visual" pos="-0.02575 0.01025 -0.007" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_hand"/>
+        <geom name="L_hand_collision" pos="-0.02575 0.01025 -0.007" quat="0.707107 0 0 -0.707107" type="mesh" mesh="L_hand"/>
+      </body>
+    </body>
+    <body name="R_arm" pos="-0.0536162 0.0924999 0.042" quat="0.707107 0.707107 0 0">
+      <inertial pos="0.00028787 -0.02 0.0460471" quat="0.707095 0.00407084 0.00407084 0.707095" mass="0.082" diaginertia="2.04452e-05 1.86453e-05 1.01794e-05"/>
+      <joint name="Chest_R_shoulder" pos="0 0 0" axis="0 -1 0" range="-0.174533 3.57793" actuatorfrcrange="-1000000 1000000"/>
+      <geom name="R_arm_visual" pos="0.01025 0.007 0.02575" quat="0 0 0.707107 -0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_arm"/>
+      <geom name="R_arm_collision" pos="0.01025 0.007 0.02575" quat="0 0 0.707107 -0.707107" type="mesh" mesh="R_arm"/>
+      <body name="R_hand" pos="0.02025 -0.02 0.06325" quat="0.707107 0 0.707107 0">
+        <inertial pos="-0.0460523 -1.32562e-06 -0.0199895" quat="0.499622 0.500339 0.50038 0.499659" mass="0.027" diaginertia="2.89446e-05 1.92232e-05 1.16792e-05"/>
+        <joint name="R_arm_R_elbow" pos="0 0 0" axis="0 0 -1" range="-2.26893 2.26893" actuatorfrcrange="-1000000 1000000"/>
+        <geom name="R_hand_visual" pos="-0.02575 0.01025 -0.047" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_hand"/>
+        <geom name="R_hand_collision" pos="-0.02575 0.01025 -0.047" quat="0.707107 0 0 -0.707107" type="mesh" mesh="R_hand"/>
+      </body>
+    </body>
+    <body name="L_hip" pos="0.0549754 -0.02575 0.0452117" quat="0.707107 -0.707107 0 0">
+      <inertial pos="0.0104672 0.0229627 -0.0051229" quat="0.00188603 0.693656 0.0115108 0.720212" mass="0.084" diaginertia="1.54551e-05 1.4936e-05 1.36886e-05"/>
+      <joint name="Chest_L_hip_roll" pos="0 0 0" axis="0 -1 0" range="-0.087266 0.610865" actuatorfrcrange="-1000000 1000000"/>
+      <geom name="L_hip_visual" pos="-0.01 0.003 -0.01025" quat="0.5 0.5 0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_hip"/>
+      <geom name="L_hip_collision" pos="-0.01 0.003 -0.01025" quat="0.5 0.5 0.5 0.5" type="mesh" mesh="L_hip"/>
+      <body name="L_leg" pos="0.03325 0.023 -0.0410772" quat="1 0 0 0">
+        <inertial pos="-0.0229975 -0.0024328 -0.0334456" quat="0.707066 -0.0194778 0.021901 0.70654" mass="0.144" diaginertia="6.05263e-05 5.11878e-05 1.71902e-05"/>
+        <joint name="L_hip_L_hip_pitch" pos="0 0 0" axis="1 0 0" range="-2.00713 2.0944" actuatorfrcrange="-1000000 1000000"/>
+        <geom name="L_leg_visual" pos="-0.003 -0.01025 0.01" quat="0 0 -1 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_leg"/>
+        <geom name="L_leg_collision" pos="-0.003 -0.01025 0.01" quat="0 0 -1 0" type="mesh" mesh="L_leg"/>
+        <body name="L_shin" pos="-0.003 -1.011e-05 -0.065028" quat="0 0.707107 0 0.707107">
+          <inertial pos="-0.0460451 0.0051624 -0.0200445" quat="0.455866 0.453583 0.540321 0.542681" mass="0.082" diaginertia="2.7299e-05 1.96223e-05 1.2123e-05"/>
+          <joint name="L_leg_L_knee" pos="0 0 0" axis="0 0 -1" range="-2.74889 1.1781" actuatorfrcrange="-1000000 1000000"/>
+          <geom name="L_shin_visual" pos="-0.01621 0.0224802 -0.047" quat="0.480989 0 0 -0.876727" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_shin"/>
+          <geom name="L_shin_collision" pos="-0.01621 0.0224802 -0.047" quat="0.480989 0 0 -0.876727" type="mesh" mesh="L_shin"/>
+          <body name="L_ankle" pos="-0.0642881 4.21e-05 0" quat="0.707107 0 -0.707107 0">
+            <inertial pos="-0.0197828 4.1986e-05 0.0359543" quat="-0.00283273 0.69365 -0.0119747 0.720207" mass="0.084" diaginertia="1.54551e-05 1.49359e-05 1.36886e-05"/>
+            <joint name="L_shin_L_ankle_pitch" pos="0 0 0" axis="-1 0 0" range="-2.48709 1.78896" actuatorfrcrange="-1000000 1000000"/>
+            <geom name="L_ankle_visual" pos="-0.047 0.01025 0.02575" quat="0.5 -0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_ankle"/>
+            <geom name="L_ankle_collision" pos="-0.047 0.01025 0.02575" quat="0.5 -0.5 0.5 -0.5" type="mesh" mesh="L_ankle"/>
+            <body name="L_foot" pos="-0.03025 0.02 0.0410772" quat="0.707107 0 0.707107 0">
+              <inertial pos="-0.026558 -0.0202445 0.0128125" quat="0.705188 0.701048 -0.0757698 0.0741642" mass="0.034" diaginertia="2.41989e-05 1.72163e-05 1.10653e-05"/>
+              <joint name="L_ankle_L_ankle_roll" pos="0 0 0" axis="0 -1 0" range="-0.785398 1.8326" actuatorfrcrange="-1000000 1000000"/>
+              <geom name="L_foot_visual" pos="-0.02575 0.007 0.01025" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="L_foot"/>
+              <geom name="L_foot_collision" pos="-0.02575 0.007 0.01025" quat="0.5 0.5 0.5 -0.5" type="mesh" mesh="L_foot"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="R_hip" pos="0.0148881 -0.02575 0.0452634" quat="0.707107 -0.707107 0 0">
+      <inertial pos="-0.0104672 0.022958 -0.0051229" quat="0.0119747 0.720207 0.00283272 0.69365" mass="0.084" diaginertia="1.54551e-05 1.49359e-05 1.36886e-05"/>
+      <joint name="Chest_R_hip_roll" pos="0 0 0" axis="0 -1 0" range="-0.610865 0.087266" actuatorfrcrange="-1000000 1000000"/>
+      <geom name="R_hip_visual" pos="0.01 0.003 0.01025" quat="0.5 -0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_hip"/>
+      <geom name="R_hip_collision" pos="0.01 0.003 0.01025" quat="0.5 -0.5 -0.5 0.5" type="mesh" mesh="R_hip"/>
+      <body name="R_leg" pos="-0.03325 0.023 -0.0410772" quat="1 0 0 0">
+        <inertial pos="0.0230025 -0.00243281 -0.0334456" quat="0.707066 -0.0194778 0.021901 0.70654" mass="0.144" diaginertia="6.05263e-05 5.11878e-05 1.71902e-05"/>
+        <joint name="R_hip_R_hip_pitch" pos="0 0 0" axis="-1 0 0" range="-2.0944 2.00713" actuatorfrcrange="-1000000 1000000"/>
+        <geom name="R_leg_visual" pos="0.043 -0.01025 0.01" quat="0 0 -1 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_leg"/>
+        <geom name="R_leg_collision" pos="0.043 -0.01025 0.01" quat="0 0 -1 0" type="mesh" mesh="R_leg"/>
+        <body name="R_shin" pos="0.003 -1.011e-05 -0.065028" quat="0.707107 0 -0.707107 0">
+          <inertial pos="-0.0460451 -0.00516242 -0.0199555" quat="0.540321 0.542681 0.455866 0.453583" mass="0.082" diaginertia="2.7299e-05 1.96223e-05 1.2123e-05"/>
+          <joint name="R_leg_R_knee" pos="0 0 0" axis="0 0 -1" range="-1.1781 2.74889" actuatorfrcrange="-1000000 1000000"/>
+          <geom name="R_shin_visual" pos="-0.01621 -0.0224802 0.007" quat="0 0.480989 0.876727 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_shin"/>
+          <geom name="R_shin_collision" pos="-0.01621 -0.0224802 0.007" quat="0 0.480989 0.876727 0" type="mesh" mesh="R_shin"/>
+          <body name="R_ankle" pos="-0.0642881 -4.21e-05 0" quat="0.707107 0 0.707107 0">
+            <inertial pos="0.0197828 4.19844e-05 -0.0359543" quat="0.00283273 0.69365 0.0119747 0.720207" mass="0.084" diaginertia="1.54551e-05 1.49359e-05 1.36886e-05"/>
+            <joint name="R_shin_R_ankle_pitch" pos="0 0 0" axis="1 0 0" range="-1.78896 2.48709" actuatorfrcrange="-1000000 1000000"/>
+            <geom name="R_ankle_visual" pos="-0.007 -0.01025 -0.02575" quat="0.5 0.5 0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_ankle"/>
+            <geom name="R_ankle_collision" pos="-0.007 -0.01025 -0.02575" quat="0.5 0.5 0.5 0.5" type="mesh" mesh="R_ankle"/>
+            <body name="R_foot" pos="0.03025 -0.02 -0.0410772" quat="0 -0.707107 0 -0.707107">
+              <inertial pos="-0.026558 -0.0197555 -0.0128124" quat="0.705188 0.701048 0.0757698 -0.0741642" mass="0.034" diaginertia="2.41989e-05 1.72163e-05 1.10653e-05"/>
+              <joint name="R_ankle_R_ankle_roll" pos="0 0 0" axis="0 -1 0" range="-1.8326 0.785398" actuatorfrcrange="-1000000 1000000"/>
+              <geom name="R_foot_visual" pos="-0.02575 -0.047 -0.01025" quat="0.5 -0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="R_foot"/>
+              <geom name="R_foot_collision" pos="-0.02575 -0.047 -0.01025" quat="0.5 -0.5 -0.5 -0.5" type="mesh" mesh="R_foot"/>
+            </body>
+          </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+        <position name="Chest_neck_motor" joint="Chest_neck" ctrlrange="-3.141593 3.141593" kp="2" forcerange="-1.96 1.96"/>
+        <position name="Chest_L_shoulder_motor" joint="Chest_L_shoulder" ctrlrange="-3.577925 0.174533" kp="2" forcerange="-1.96 1.96"/>
+        <position name="L_arm_L_elbow_motor" joint="L_arm_L_elbow" ctrlrange="-2.268928 2.268928" kp="2" forcerange="-1.96 1.96"/>
+        <position name="Chest_R_shoulder_motor" joint="Chest_R_shoulder" ctrlrange="-0.174533 3.577925" kp="2" forcerange="-1.96 1.96"/>
+        <position name="R_arm_R_elbow_motor" joint="R_arm_R_elbow" ctrlrange="-2.268928 2.268928" kp="2" forcerange="-1.96 1.96"/>
+        
+        <position name="Chest_L_hip_roll_motor" joint="Chest_L_hip_roll" ctrlrange="-0.087266 0.610865" kp="2" forcerange="-1.96 1.96"/>
+        <position name="L_hip_L_hip_pitch_motor" joint="L_hip_L_hip_pitch" ctrlrange="-2.007129 2.094395" kp="2" forcerange="-1.96 1.96"/>
+        <position name="L_leg_L_knee_motor" joint="L_leg_L_knee" ctrlrange="-2.748894 1.178097" kp="2" forcerange="-1.96 1.96"/>
+        <position name="L_shin_L_ankle_pitch_motor" joint="L_shin_L_ankle_pitch" ctrlrange="-2.487094 1.788962" kp="2" forcerange="-1.96 1.96"/>
+        <position name="L_ankle_L_ankle_roll_motor" joint="L_ankle_L_ankle_roll" ctrlrange="-0.785398 1.832596" kp="2" forcerange="-1.96 1.96"/>
+        
+        <position name="Chest_R_hip_roll_motor" joint="Chest_R_hip_roll" ctrlrange="-0.610865 0.087266" kp="2" forcerange="-1.96 1.96"/>
+        <position name="R_hip_R_hip_pitch_motor" joint="R_hip_R_hip_pitch" ctrlrange="-2.094395 2.007129" kp="2" forcerange="-1.96 1.96"/>
+        <position name="R_leg_R_knee_motor" joint="R_leg_R_knee" ctrlrange="-1.178097 2.748894" kp="2" forcerange="-1.96 1.96"/>
+        <position name="R_shin_R_ankle_pitch_motor" joint="R_shin_R_ankle_pitch" ctrlrange="-1.788962 2.487094" kp="2" forcerange="-1.96 1.96"/>
+        <position name="R_ankle_R_ankle_roll_motor" joint="R_ankle_R_ankle_roll" ctrlrange="-1.832596 0.785398" kp="2" forcerange="-1.96 1.96"/>
+    </actuator>
+
+</mujoco>
