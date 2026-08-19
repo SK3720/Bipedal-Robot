@@ -85,7 +85,8 @@ class BipedalWalkEnv(gym.Env):
         mujoco.mj_resetData(self.model, self.data)
 
         # Starting position
-        self.data.qpos[3:7] = [1, 0, 0, 0]
+        self.data.qpos[0:3] = [0, 0, 1.5]
+        # self.data.qpos[3:7] = [1, 0, 0, 0]
         # Rotate the ENTIRE robot 90 degrees around X
         angle = np.pi / 2
 
