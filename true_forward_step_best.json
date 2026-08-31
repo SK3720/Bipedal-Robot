@@ -1,0 +1,44 @@
+{
+  "metrics": {
+    "name": "R_hp0.24_k0.28_a0.10_ws-0.12_t150_push0N",
+    "swing_leg": "R",
+    "push_n": 0.0,
+    "success": false,
+    "peak_forward_m": 0.04364159020303801,
+    "peak_lateral_m": 0.038698298091626164,
+    "lateral_forward_ratio": 0.8867297894413634,
+    "peak_clearance_m": 0.039770965646058976,
+    "lost_contact": false,
+    "regained_contact": false,
+    "stance_ok_swing": true,
+    "max_torso_tilt_rad": 1.9249907487461837,
+    "final_torso_tilt_rad": 1.8087008079872877,
+    "max_torso_angvel": 12.734678351124144,
+    "max_pre_swing_tilt_rad": 0.1794520964523238,
+    "landing_step": null,
+    "total_steps": 1380
+  },
+  "failure_reasons": [
+    "swing foot never lost contact",
+    "forward 0.044 m < 0.050 m (WORLD -Y)",
+    "lateral/forward ratio 0.89 > 0.65",
+    "swing foot did not recontact",
+    "final tilt 1.809 rad >= 0.450 rad"
+  ],
+  "spec": {
+    "name": "R_hp0.24_k0.28_a0.10_ws-0.12_t150",
+    "swing_leg": "R",
+    "hip_pitch": 0.24,
+    "knee": -0.28,
+    "ankle": 0.1,
+    "ws_stance_pitch": -0.12,
+    "swing_ms": 150,
+    "unload_ms": 60,
+    "lift_ms": 50,
+    "place_ms": 120,
+    "weight_shift_ms": 200,
+    "stabilize_ms": 300,
+    "place_hip_scale": 0.72,
+    "place_knee_scale": 0.65
+  }
+}

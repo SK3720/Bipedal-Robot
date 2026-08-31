@@ -7,6 +7,8 @@
   </default>
 
   <asset>
+    <texture name="floor_tex" type="2d" builtin="flat" width="512" height="512" rgb1="0.85 0.85 0.85"/>
+    <material name="floor_mat" texture="floor_tex" texuniform="true" rgba="0.85 0.85 0.85 1" emission="0.65" reflectance="0" specular="0"/>
     <mesh name="Chest" content_type="model/stl" file="meshes/Chest.stl" scale="0.001 0.001 0.001"/>
     <mesh name="Head-v6" content_type="model/stl" file="meshes/Head-v6.stl" scale="0.001 0.001 0.001"/>
     <mesh name="L_hip" content_type="model/stl" file="meshes/L_hip.stl" scale="0.001 0.001 0.001"/>
@@ -31,6 +33,7 @@
     type="plane"
     size="10 10 0.1"
     pos="0 0 1"
+    material="floor_mat"
     friction="1 0.005 0.0001"/>
     <body name="Chest" pos="0 0 2.0">
       <freejoint name="root"/>
@@ -130,23 +133,23 @@
   </worldbody>
 
   <actuator>
-        <position name="Chest_neck_motor" joint="Chest_neck" ctrlrange="-3.141593 3.141593" kp="2" forcerange="-1.96 1.96"/>
-        <position name="Chest_L_shoulder_motor" joint="Chest_L_shoulder" ctrlrange="-3.577925 0.174533" kp="2" forcerange="-1.96 1.96"/>
-        <position name="L_arm_L_elbow_motor" joint="L_arm_L_elbow" ctrlrange="-2.268928 2.268928" kp="2" forcerange="-1.96 1.96"/>
-        <position name="Chest_R_shoulder_motor" joint="Chest_R_shoulder" ctrlrange="-0.174533 3.577925" kp="2" forcerange="-1.96 1.96"/>
-        <position name="R_arm_R_elbow_motor" joint="R_arm_R_elbow" ctrlrange="-2.268928 2.268928" kp="2" forcerange="-1.96 1.96"/>
+        <position name="Chest_neck_motor" joint="Chest_neck" ctrlrange="-3.141593 3.141593" kp="30" forcerange="-2.3 2.3"/>
+        <position name="Chest_L_shoulder_motor" joint="Chest_L_shoulder" ctrlrange="-3.577925 0.174533" kp="30" forcerange="-2.3 2.3"/>
+        <position name="L_arm_L_elbow_motor" joint="L_arm_L_elbow" ctrlrange="-2.268928 2.268928" kp="30" forcerange="-2.3 2.3"/>
+        <position name="Chest_R_shoulder_motor" joint="Chest_R_shoulder" ctrlrange="-0.174533 3.577925" kp="30" forcerange="-2.3 2.3"/>
+        <position name="R_arm_R_elbow_motor" joint="R_arm_R_elbow" ctrlrange="-2.268928 2.268928" kp="30" forcerange="-2.3 2.3"/>
         
-        <position name="Chest_L_hip_roll_motor" joint="Chest_L_hip_roll" ctrlrange="-0.087266 0.610865" kp="2" forcerange="-1.96 1.96"/>
-        <position name="L_hip_L_hip_pitch_motor" joint="L_hip_L_hip_pitch" ctrlrange="-2.007129 2.094395" kp="2" forcerange="-1.96 1.96"/>
-        <position name="L_leg_L_knee_motor" joint="L_leg_L_knee" ctrlrange="-2.748894 1.178097" kp="2" forcerange="-1.96 1.96"/>
-        <position name="L_shin_L_ankle_pitch_motor" joint="L_shin_L_ankle_pitch" ctrlrange="-2.487094 1.788962" kp="2" forcerange="-1.96 1.96"/>
-        <position name="L_ankle_L_ankle_roll_motor" joint="L_ankle_L_ankle_roll" ctrlrange="-0.785398 1.832596" kp="2" forcerange="-1.96 1.96"/>
+        <position name="Chest_L_hip_roll_motor" joint="Chest_L_hip_roll" ctrlrange="-0.087266 0.610865" kp="30" forcerange="-2.3 2.3"/>
+        <position name="L_hip_L_hip_pitch_motor" joint="L_hip_L_hip_pitch" ctrlrange="-2.007129 2.094395" kp="30" forcerange="-2.3 2.3"/>
+        <position name="L_leg_L_knee_motor" joint="L_leg_L_knee" ctrlrange="-2.748894 1.178097" kp="30" forcerange="-2.3 2.3"/>
+        <position name="L_shin_L_ankle_pitch_motor" joint="L_shin_L_ankle_pitch" ctrlrange="-2.487094 1.788962" kp="30" forcerange="-2.3 2.3"/>
+        <position name="L_ankle_L_ankle_roll_motor" joint="L_ankle_L_ankle_roll" ctrlrange="-0.785398 1.832596" kp="30" forcerange="-2.3 2.3"/>
         
-        <position name="Chest_R_hip_roll_motor" joint="Chest_R_hip_roll" ctrlrange="-0.610865 0.087266" kp="2" forcerange="-1.96 1.96"/>
-        <position name="R_hip_R_hip_pitch_motor" joint="R_hip_R_hip_pitch" ctrlrange="-2.094395 2.007129" kp="2" forcerange="-1.96 1.96"/>
-        <position name="R_leg_R_knee_motor" joint="R_leg_R_knee" ctrlrange="-1.178097 2.748894" kp="2" forcerange="-1.96 1.96"/>
-        <position name="R_shin_R_ankle_pitch_motor" joint="R_shin_R_ankle_pitch" ctrlrange="-1.788962 2.487094" kp="2" forcerange="-1.96 1.96"/>
-        <position name="R_ankle_R_ankle_roll_motor" joint="R_ankle_R_ankle_roll" ctrlrange="-1.832596 0.785398" kp="2" forcerange="-1.96 1.96"/>
+        <position name="Chest_R_hip_roll_motor" joint="Chest_R_hip_roll" ctrlrange="-0.610865 0.087266" kp="30" forcerange="-2.3 2.3"/>
+        <position name="R_hip_R_hip_pitch_motor" joint="R_hip_R_hip_pitch" ctrlrange="-2.094395 2.007129" kp="30" forcerange="-2.3 2.3"/>
+        <position name="R_leg_R_knee_motor" joint="R_leg_R_knee" ctrlrange="-1.178097 2.748894" kp="30" forcerange="-2.3 2.3"/>
+        <position name="R_shin_R_ankle_pitch_motor" joint="R_shin_R_ankle_pitch" ctrlrange="-1.788962 2.487094" kp="30" forcerange="-2.3 2.3"/>
+        <position name="R_ankle_R_ankle_roll_motor" joint="R_ankle_R_ankle_roll" ctrlrange="-1.832596 0.785398" kp="30" forcerange="-2.3 2.3"/>
     </actuator>
 
 </mujoco>
