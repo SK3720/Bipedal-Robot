@@ -1,0 +1,13 @@
+{
+  "n_steps": 1024,
+  "batch_size": 2048,
+  "n_epochs": 6,
+  "lr": 0.00025,
+  "ent": 0.003,
+  "net_arch": [
+    256,
+    256
+  ],
+  "log_std": -2.9,
+  "curriculum_level": 4
+}

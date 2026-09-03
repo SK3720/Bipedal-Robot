@@ -1,0 +1,16 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+
+# local caches / scratch
+_exp1_cache/
+_stumble_out/
+*.stackdump
+nohup.out
+
+# training run noise (keep policy*.pth, vecnormalize*.pkl, hparams.json, best.txt, eval_*.mp4)
+runs/**/mon_*.csv
+runs/**/mon_*.csv.monitor.csv
+runs_*.log
+*.log
