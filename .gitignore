@@ -14,3 +14,6 @@ runs/**/mon_*.csv
 runs/**/mon_*.csv.monitor.csv
 runs_*.log
 *.log
+hil/logs/
+hil/mpu_calib.json
+dist/

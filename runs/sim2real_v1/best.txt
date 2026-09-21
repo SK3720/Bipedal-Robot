@@ -1,0 +1,7 @@
+DAgger-distilled sim-to-real walk (policy_best.pth == policy_dagger3.pth == policy_at_dagger3_97pct.pth)
+Independent eval (realistic IMU+encoder obs, deterministic):
+  robust 0.00 : 97% survive, 2/30 fell, 2.21 m/ep, 25 genuine steps, 4% flight, 0 dives, chatter 0.10
+  robust 0.15 : 84% survive, 8/30 fell, 1.88 m/ep
+Trained by pure supervised distillation (loco_w3 teacher + rebuilt IMU-only controller):
+  init BC 350 rollouts -> 88% ; +DAgger x3 (student drives, teacher labels) -> 96-99%
+No RL. Dataset 1.12M steps, 1/3 under robust=0.15.
